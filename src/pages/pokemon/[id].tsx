@@ -6,8 +6,8 @@ import {
   PointElement,
   RadialLinearScale,
 } from 'chart.js'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import { padStart, themeByType } from '@/utils/pokemon/pokemon'
-import { useEffect, useMemo, useState } from 'react'
 
 import Button from '@/components/Button/Button'
 import Chip from '@/components/Chip/Chip'
@@ -95,7 +95,11 @@ export default function PokemonPage({
             </Link>
           )}
           {pokemon.evolves_to.map((evolution: any) => {
-            return renderEvolutionChain(evolution)
+            return (
+              <Fragment key={`${evolution.species.name}`}>
+                {renderEvolutionChain(evolution)}
+              </Fragment>
+            )
           })}
         </>
       )
@@ -121,7 +125,7 @@ export default function PokemonPage({
       },
     ],
   }
-  const RadarOptions = {
+  const RadarOptions: any = {
     scale: {
       ticks: {
         min: 0,
@@ -194,12 +198,10 @@ export default function PokemonPage({
                   <ul>
                     {data.moves?.map((move, id) => {
                       return id < 4 ? (
-                        <li key={`move${move.move.name}`}>
+                        <li key={`move${move.move.name}${data.id}`}>
                           {move.move.name.replace('-', ' ')}
                         </li>
-                      ) : (
-                        <></>
-                      )
+                      ) : null
                     })}
                   </ul>
                 </div>
