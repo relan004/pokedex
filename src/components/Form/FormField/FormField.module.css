@@ -1,0 +1,12 @@
+.formField {
+}
+
+.form-field__label {
+  @apply block text-sm font-medium leading-6 text-gray-900;
+}
+
+.form-field__description {
+}
+
+.form-field__error {
+}

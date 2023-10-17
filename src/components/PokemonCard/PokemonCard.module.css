@@ -1,0 +1,14 @@
+.pokemon-card {
+  @apply p-4 rounded-md;
+}
+
+.pokemon-card__name {
+  @apply text-xl capitalize;
+}
+
+.pokemon-card:hover {
+  cursor: pointer;
+  a {
+    @apply underline;
+  }
+}

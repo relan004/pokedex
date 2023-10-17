@@ -1,0 +1,11 @@
+.stat {
+  @apply text-center;
+}
+
+.stat__base {
+  @apply border-2 h-16 w-16 font-medium mx-auto mb-2 rounded-full flex justify-center items-center;
+}
+
+.stat__label {
+  @apply block text-xs font-medium leading-4 text-gray-900;
+}
